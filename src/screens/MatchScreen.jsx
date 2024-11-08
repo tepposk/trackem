@@ -218,7 +218,8 @@ export default function Frame(props) {
     }; */
 
     const closeFoulMenu = () => {
-        setDisplay("control");
+        //setDisplay("control");
+        document.getElementById("foul-menu").style.transform = "translateY(-100%)";
     };
 
     const openFoulMenu = () => {
@@ -226,7 +227,7 @@ export default function Frame(props) {
     };
 
     // Foul menu
-    function foulmens() {
+    /* function foulmens() { */
 
         const dynamicFoulPoints = () => {
             if (noRedsLastPottedColor > 3) {
@@ -323,18 +324,18 @@ export default function Frame(props) {
             setFouls(fouls + 1);
         };
 
-        // Ends the turn, closes the foul menu and adds the conceded points to the point tally in the main app
-        const foulEndTurn = () => {
+        // Ends the turn, closes the foul menu and adds the conceded points to the point tally in the scoreboard
+        const foulEndTurn = (foulPoints, redsRemoved, freeBall) => {
             setFoulMenuRedsLeft(foulMenuRedsLeft - redsRemoved);
             setRedsLeft(foulMenuRedsLeft - redsRemoved);
             if (p1.active) {
                 setP2(prevState => ({
-                    ...prevState, score: prevState.score + totalPointsConceded
+                    ...prevState, score: prevState.score + /* totalPointsConceded */ foulPoints
                 }))
                 /* console.log(totalPointsConceded + " foul points awarded to " + p2.name); */
             } else {
                 setP1(prevState => ({
-                    ...prevState, score: prevState.score + totalPointsConceded
+                    ...prevState, score: prevState.score + /* totalPointsConceded */ foulPoints
                 }))
                 /* console.log(totalPointsConceded + " foul points awarded to " + p1.name); */
             };
@@ -349,7 +350,7 @@ export default function Frame(props) {
             closeFoulMenu();
             toggleActivePlayer();
             //endTurn();
-        };
+        /* }; */
 
         // Foul menu 
         return (
@@ -396,13 +397,13 @@ export default function Frame(props) {
 
     return (
         <div>
-            <FoulMenu activePlayer={activePlayer} passivePlayer={passivePlayer} redsLeft={redsLeft} toggleActivePlayer={toggleActivePlayer} />
+            <FoulMenu activePlayer={activePlayer} passivePlayer={passivePlayer} redsLeft={redsLeft} toggleActivePlayer={toggleActivePlayer} foulEndTurn={foulEndTurn} />
             <Scoreboard arrow={Arrow} p1={p1} p2={p2} scoreboardClick={scoreboardClick} />
 
             <div className="control">
                 <BreakCounter breakCounter={breakCounter} currentBreak={currentBreak} ballsArray={ballsArray} />
 
-                <div id="firstRow" className="ball-row">
+                <div id="first-row" className="ball-row">
                     <Ball value={1} name={"red"} image={Red} disabled={disableRed} potColor={potRed} />
                     <div className="ball-wrapper">
                         <input type="image" src={FoulBall} id="foul" alt="foul" className="ball" onClick={() => openFoulMenu(redsLeft)} onContextMenu={(e) => e.preventDefault()} />

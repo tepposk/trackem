@@ -111,7 +111,12 @@ export default function FoulMenu(props) {
     // Buttons for submit
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(freeBall);
+        //closeFoulMenu();
+        props.foulEndTurn(foulPoints, redsRemoved, freeBall);
+        resetMenu();
+        // Placeholder until dynamic foul points are set back up
+        setDisableDecrementCount(true);
+        setDisableIncrementCount(false);
     }
 
     const resetMenu = () => {
