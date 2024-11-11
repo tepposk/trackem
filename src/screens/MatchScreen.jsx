@@ -7,8 +7,8 @@ import FoulMenu from "../components/FoulMenu";
 
 import Arrow from "../images/player_arrow.svg"
 import Red from "../images/red.svg";
-import FoulBall from "../images/foul.svg";
-import EndTurn from "../images/endturn.svg";
+import Foul from "../images/foul.svg";
+import Endturn from "../images/endturn.svg";
 import Yellow from "../images/yellow.svg";
 import Green from "../images/green.svg";
 import Brown from "../images/brown.svg";
@@ -406,13 +406,13 @@ export default function Frame(props) {
                 <div id="first-row" className="ball-row">
                     <Ball value={1} name={"red"} image={Red} disabled={disableRed} potColor={potRed} />
                     <div className="ball-wrapper">
-                        <input type="image" src={FoulBall} id="foul" alt="foul" className="ball" onClick={() => openFoulMenu(redsLeft)} onContextMenu={(e) => e.preventDefault()} />
-                        <input type="image" src={FoulBall} alt="foul" className="ball-bg" />
+                        <input type="image" src={Foul} id="foul" alt="foul" className="ball" onClick={() => openFoulMenu(redsLeft)} onContextMenu={(e) => e.preventDefault()} />
+                        <input type="image" src={Foul} alt="foul" className="ball-bg" />
                     </div>
                     <div className="ball-wrapper">
                         <div id="endturn-overlay"></div>
-                        <input type="image" src={EndTurn} id="endturn" alt="endturn" className="ball" onClick={endTurn} onContextMenu={(e) => e.preventDefault()} />
-                        <input type="image" src={EndTurn} alt="endturn" className="ball-bg" />
+                        <input type="image" src={Endturn} id="endturn" alt="endturn" className="ball" onClick={endTurn} onContextMenu={(e) => e.preventDefault()} />
+                        <input type="image" src={Endturn} alt="endturn" className="ball-bg" />
 
                     </div>
                 </div>

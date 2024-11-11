@@ -142,6 +142,7 @@ h3 {
 input {
     font-family: Verdana, sans-serif;
     font-weight: 700;
+    max-width: 300px;
 }
 
 input:not([type=image]) {
@@ -204,6 +205,7 @@ label {
 
 #menu-frames .checkbox {
     background-color: var(--dgreen);
+    opacity: 50%;
 }
 
 .checkmark {
@@ -255,3 +257,18 @@ label {
     opacity: 100;
     display: none;
 } */
+
+#attention {   
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: red;
+    font-weight: 100;
+    font-size: 12px;
+    padding: 1em;
+    text-align: center;
+}
+
+#attention p {
+    margin: 0 2%;
+}

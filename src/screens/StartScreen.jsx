@@ -16,6 +16,10 @@ const openStartMenu = () => {
 export default function StartScreen(props) {
     return (
         <div className="start-screen">
+            <div id="attention">
+                <p>
+                    <b>NOTE</b>: This is a beta version. If you are viewing the app on a computer, use your browsers developer tools to show a mobile view.</p>
+            </div>
             <StartMenu startMatch={props.startMatch} />
             <input type="image" src={TrackemLogo} alt="" className="logo" />
             <div className="start-screen-buttons">
